@@ -1,0 +1,20 @@
+# Backups & temp files
+*.bak
+*.tmp
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Local dev tooling
+.claude/
+
+# Internal reference materials (brand guideline PDF pages, not used in LP)
+_guideline/
