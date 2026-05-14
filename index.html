@@ -122,7 +122,7 @@ ul{list-style:none}
 /* ============ HERO ============ */
 .hero{
   position:relative;
-  padding:8px 40px 40px;
+  padding:8px 24px 0;
   min-height:100vh;
   display:flex;
   flex-direction:column;
@@ -273,17 +273,20 @@ ul{list-style:none}
 .hero-stage{
   position:relative;
   display:flex;
-  align-items:center;
+  align-items:flex-end;
   justify-content:center;
-  margin:clamp(-50px,-4vw,-20px) 0 0;
-  min-height:clamp(340px,40vw,620px);
+  margin:0;
+  padding:clamp(8px,1.4vw,20px) 0 0;
+  min-height:clamp(380px,54vh,820px);
+  flex:1;
   width:100%;
 }
 
 /* Hero center: フルKV (2027 pill + トイロ/フェス + 開催情報 + 主催) */
 .hero-center{
   position:relative;
-  width:min(clamp(560px,68vw,1040px),96vw);
+  width:min(1500px, 96vw);
+  max-height:100%;
   aspect-ratio:2816/1586;
   display:flex;
   align-items:center;
@@ -655,7 +658,7 @@ ul{list-style:none}
 }
 
 @media(max-width:900px){
-  .hero{padding:110px 20px 60px}
+  .hero{padding:110px 16px 0}
 }
 
 /* ============ SECTION COMMON ============ */
@@ -1889,7 +1892,7 @@ section{padding:120px 40px;position:relative}
   .menu-btn span::after{top:4px}
 
   /* --- Hero: leave room for countdown on first screen --- */
-  .hero{padding:48px 12px 100px;min-height:auto;justify-content:center}
+  .hero{padding:48px 12px 0;min-height:auto;justify-content:center}
   .hero-inner{gap:10px;order:1}
   .hero-headline{margin-bottom:4px}
   .hero-eyebrow{font-size:8px;padding:5px 12px;margin-bottom:8px;letter-spacing:.18em}
