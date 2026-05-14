@@ -2445,102 +2445,167 @@ section{padding:120px 40px;position:relative}
 /* ============ President Message ============ */
 .president{
   padding:120px 24px;
-  background:linear-gradient(180deg, #ffffff 0%, #f7f9fa 100%);
-  position:relative;
-}
-.president .container{max-width:920px}
-.president-head{text-align:center;margin-bottom:56px}
-.president-head .eyebrow{color:var(--c-green);font-family:'Outfit', sans-serif;font-size:11px;letter-spacing:.4em;font-weight:600}
-.president-head h2{font-size:clamp(28px, 4vw, 42px);font-weight:800;margin:14px 0 0;color:#1a1a1a;letter-spacing:.02em}
-.president-card{
-  background:#fff;
-  border-radius:28px;
-  padding:64px 72px;
-  box-shadow:0 30px 80px rgba(0,0,0,.04);
-  border:1px solid rgba(0,0,0,.04);
+  background:linear-gradient(180deg, #ffffff 0%, #f4f7f6 100%);
   position:relative;
   overflow:hidden;
 }
-.president-card::before{
+.president::before{
+  content:'MESSAGE';
+  position:absolute;
+  top:60px;right:-40px;
+  font-family:'Outfit', sans-serif;
+  font-size:clamp(120px, 16vw, 220px);
+  font-weight:900;
+  color:rgba(139,199,130,.06);
+  letter-spacing:-.02em;
+  white-space:nowrap;
+  pointer-events:none;
+  line-height:1;
+}
+.president .container{max-width:1200px;position:relative;z-index:1}
+.president-head{text-align:center;margin-bottom:80px}
+.president-head .eyebrow{color:var(--c-green);font-family:'Outfit', sans-serif;font-size:11px;letter-spacing:.4em;font-weight:600}
+.president-head h2{font-size:clamp(28px, 4vw, 44px);font-weight:800;margin:14px 0 0;color:#1a1a1a;letter-spacing:.02em}
+
+.president-grid{
+  display:grid;
+  grid-template-columns:minmax(380px, 460px) 1fr;
+  gap:88px;
+  align-items:start;
+}
+
+/* ----- Left: Photo (main) ----- */
+.president-photo{
+  position:relative;
+}
+.president-photo-frame{
+  position:relative;
+  aspect-ratio:4/5;
+  border-radius:28px;
+  overflow:hidden;
+  box-shadow:0 40px 100px rgba(0,0,0,.18), 0 12px 30px rgba(0,0,0,.08);
+  z-index:2;
+}
+.president-photo-frame img{
+  width:100%;height:100%;
+  object-fit:cover;
+  object-position:center 18%;
+  display:block;
+  transition:transform 1s cubic-bezier(.2,.8,.2,1);
+}
+.president-photo-frame:hover img{transform:scale(1.04)}
+.president-photo-tag{
+  position:absolute;
+  left:24px;bottom:24px;
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  color:#1a1a1a;
+  font-family:'Outfit', sans-serif;
+  font-size:10px;
+  letter-spacing:.3em;
+  font-weight:700;
+  padding:8px 14px;
+  border-radius:999px;
+  z-index:3;
+}
+.president-photo-deco{
+  position:absolute;
+  top:-32px;left:-32px;
+  width:180px;height:180px;
+  background:linear-gradient(135deg, var(--c-green), var(--c-teal));
+  border-radius:50%;
+  z-index:1;
+  opacity:.18;
+  filter:blur(2px);
+}
+.president-photo-deco2{
+  position:absolute;
+  bottom:80px;right:-40px;
+  width:140px;height:140px;
+  background:var(--c-yellow);
+  border-radius:50%;
+  z-index:1;
+  opacity:.22;
+  filter:blur(8px);
+}
+.president-name-block{
+  margin-top:36px;
+  padding-left:4px;
+  position:relative;
+  z-index:2;
+}
+.president-name-block .role{
+  font-size:11px;letter-spacing:.3em;
+  color:var(--c-green);font-family:'Outfit', sans-serif;
+  text-transform:uppercase;
+  font-weight:700;
+}
+.president-name-block .name{
+  font-size:32px;font-weight:800;
+  color:#1a1a1a;
+  margin-top:10px;
+  letter-spacing:.06em;
+  line-height:1.2;
+}
+.president-name-block .company{
+  font-size:14px;color:#666;
+  margin-top:8px;
+  letter-spacing:.04em;
+}
+
+/* ----- Right: Message body ----- */
+.president-message-body{
+  padding-top:12px;
+  position:relative;
+}
+.president-message-body::before{
   content:'"';
   position:absolute;
-  top:8px;left:36px;
+  top:-72px;left:-32px;
   font-family:Georgia, serif;
-  font-size:180px;
+  font-size:220px;
   color:var(--c-green);
   opacity:.13;
   line-height:1;
   pointer-events:none;
 }
 .president-body{
-  font-size:17px;line-height:2.1;
+  font-size:17px;line-height:2.15;
   color:#2a2a2a;
   position:relative;z-index:1;
 }
-.president-body p{margin:0 0 18px}
+.president-body p{margin:0 0 22px}
 .president-body p:last-child{margin-bottom:0}
-.president-sign{
-  display:flex;align-items:center;gap:32px;
-  margin-top:56px;
-  padding-top:44px;
-  border-top:1px solid rgba(0,0,0,.08);
-}
-.president-avatar{
-  width:160px;height:160px;border-radius:50%;
-  overflow:hidden;
-  flex-shrink:0;
-  box-shadow:0 18px 44px rgba(0,0,0,.18);
-  border:4px solid #fff;
-  background:linear-gradient(135deg, var(--c-green), var(--c-teal));
-  display:flex;align-items:center;justify-content:center;
-  color:#fff;font-family:'Outfit', sans-serif;
-  font-size:40px;font-weight:800;
-  position:relative;
-}
-.president-avatar::after{
-  content:'';
-  position:absolute;
-  inset:-4px;
-  border-radius:50%;
-  background:linear-gradient(135deg, var(--c-green), var(--c-teal));
-  z-index:-1;
-  filter:blur(20px);
-  opacity:.25;
-}
-.president-avatar img{
-  width:100%;height:100%;
-  object-fit:cover;
-  object-position:center 20%;
-  display:block;
-}
-.president-meta .role{
-  font-size:11px;letter-spacing:.3em;
-  color:#7a7a7a;font-family:'Outfit', sans-serif;
-  text-transform:uppercase;
-  font-weight:600;
-}
-.president-meta .name{
-  font-size:26px;font-weight:800;
+.president-body .president-closing{
+  font-weight:700;
+  font-size:19px;
   color:#1a1a1a;
+  letter-spacing:.04em;
+  padding-top:8px;
+  border-top:2px solid var(--c-green);
+  display:inline-block;
   margin-top:8px;
-  letter-spacing:.06em;
-  line-height:1.2;
 }
-.president-meta .company{
-  font-size:14px;color:#666;
-  margin-top:6px;
-  letter-spacing:.02em;
+
+@media(max-width:980px){
+  .president-grid{grid-template-columns:1fr;gap:48px}
+  .president-photo{max-width:440px;margin:0 auto;width:100%}
+  .president-name-block{text-align:center;padding-left:0}
+  .president-message-body::before{display:none}
 }
 @media(max-width:768px){
   .president{padding:64px 20px}
-  .president-card{padding:36px 26px;border-radius:22px}
-  .president-card::before{font-size:110px;top:0;left:14px}
-  .president-body{font-size:15px;line-height:1.95}
-  .president-sign{flex-direction:column;align-items:center;gap:18px;margin-top:36px;text-align:center}
-  .president-avatar{width:140px;height:140px;font-size:32px;border-width:3px;box-shadow:0 14px 32px rgba(0,0,0,.16)}
-  .president-meta .role{font-size:10px}
-  .president-meta .name{font-size:22px}
-  .president-meta .company{font-size:13px}
+  .president-head{margin-bottom:48px}
+  .president-photo-frame{border-radius:22px;aspect-ratio:4/5}
+  .president-photo-deco{width:120px;height:120px;top:-20px;left:-20px}
+  .president-photo-deco2{width:100px;height:100px;right:-24px;bottom:60px}
+  .president-photo-tag{font-size:9px;padding:6px 12px;left:18px;bottom:18px}
+  .president-name-block{margin-top:28px}
+  .president-name-block .name{font-size:24px}
+  .president-name-block .company{font-size:13px}
+  .president-body{font-size:15px;line-height:2}
+  .president-body .president-closing{font-size:16px}
 }
 
 /* ============ Crowdfunding ============ */
@@ -2953,25 +3018,31 @@ section{padding:120px 40px;position:relative}
       <span class="eyebrow">Message from the President</span>
       <h2>代表メッセージ</h2>
     </div>
-    <div class="president-card fade d1">
-      <div class="president-body">
-        <p>エフィラグループは2011年の創業から、地域の皆様の「困った」の声に耳を傾けることで、保育・障害福祉・医療・介護・生活サポートの5領域・170拠点を超える地域インフラを築いてきました。</p>
-        <p>グループ名「エフィラ」は、「a life」を後ろから読んだ造語。一人ひとりの人生を後押しする存在でありたい、という私たちの願いです。そして、新たに掲げたミッションは「生ききる」。誰もが自分らしく人生を生ききる社会を、本気で叶えたいと考えています。</p>
-        <p>トイロフェス2027は、その想いを1日限定で横浜アリーナに出現させる、特別な祝祭です。放課後等デイサービスに通う子どもたちも、保護者の皆さまも、関わるすべての人も。年齢も、特性も、立場も超えて「ここにいる全員が、主役になる」景色を、一緒につくりたい。</p>
-        <p>音楽で、スポーツで、アートで、世界記録で。形はどうあれ、ひとつの目標に向かって全員で挑むこの一日が、参加してくださる皆さまの「生ききる」エネルギーになると信じています。</p>
-        <p>2027年1月9日。横浜アリーナで、お会いしましょう。</p>
-      </div>
-      <div class="president-sign">
-        <div class="president-avatar">
+    <div class="president-grid fade d1">
+      <div class="president-photo">
+        <div class="president-photo-frame">
           <img src="images/efila/president-hatakeyama.jpg" alt="畠山 大志郎">
+          <span class="president-photo-tag">EFILa GROUP</span>
         </div>
-        <div class="president-meta">
+        <div class="president-photo-deco" aria-hidden="true"></div>
+        <div class="president-photo-deco2" aria-hidden="true"></div>
+        <div class="president-name-block">
           <span class="role">President / Founder</span>
           <div class="name">畠山 大志郎</div>
           <div class="company">エフィラグループ株式会社 代表</div>
         </div>
       </div>
-      <span class="tentative-badge" style="margin-top:20px;display:inline-block;font-size:10px;padding:5px 12px;background:rgba(139,199,130,.15);color:#3a8a52;border-radius:999px;letter-spacing:.1em">※ メッセージ本文は仮です。正式版に差し替え予定</span>
+
+      <div class="president-message-body">
+        <div class="president-body">
+          <p>エフィラグループは2011年の創業から、地域の皆様の「困った」の声に耳を傾けることで、保育・障害福祉・医療・介護・生活サポートの5領域・170拠点を超える地域インフラを築いてきました。</p>
+          <p>グループ名「エフィラ」は、「a life」を後ろから読んだ造語。一人ひとりの人生を後押しする存在でありたい、という私たちの願いです。そして、新たに掲げたミッションは「生ききる」。誰もが自分らしく人生を生ききる社会を、本気で叶えたいと考えています。</p>
+          <p>トイロフェス2027は、その想いを1日限定で横浜アリーナに出現させる、特別な祝祭です。放課後等デイサービスに通う子どもたちも、保護者の皆さまも、関わるすべての人も。年齢も、特性も、立場も超えて「ここにいる全員が、主役になる」景色を、一緒につくりたい。</p>
+          <p>音楽で、スポーツで、アートで、世界記録で。形はどうあれ、ひとつの目標に向かって全員で挑むこの一日が、参加してくださる皆さまの「生ききる」エネルギーになると信じています。</p>
+          <p class="president-closing">2027年1月9日。横浜アリーナで、お会いしましょう。</p>
+        </div>
+        <span class="tentative-badge" style="margin-top:24px;display:inline-block;font-size:10px;padding:5px 12px;background:rgba(139,199,130,.15);color:#3a8a52;border-radius:999px;letter-spacing:.1em">※ メッセージ本文は仮です。正式版に差し替え予定</span>
+      </div>
     </div>
   </div>
 </section>
