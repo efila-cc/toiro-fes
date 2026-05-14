@@ -275,16 +275,16 @@ ul{list-style:none}
   display:flex;
   align-items:center;
   justify-content:center;
-  margin:clamp(-70px,-6vw,-40px) 0 0;
-  min-height:clamp(400px,42vw,580px);
+  margin:clamp(-50px,-4vw,-20px) 0 0;
+  min-height:clamp(340px,40vw,620px);
   width:100%;
 }
 
-/* Hero center: KVロゴ画像 (2027 pill + トイロ/フェス) */
+/* Hero center: フルKV (2027 pill + トイロ/フェス + 開催情報 + 主催) */
 .hero-center{
   position:relative;
-  width:min(clamp(400px,44vw,640px),70vh);
-  aspect-ratio:1111/965;
+  width:min(clamp(560px,68vw,1040px),96vw);
+  aspect-ratio:2816/1586;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -295,8 +295,10 @@ ul{list-style:none}
   width:100%;
   height:100%;
   object-fit:contain;
-  filter:drop-shadow(0 24px 50px rgba(0,0,0,.10));
-  animation:logoBreath 5s ease-in-out 2s infinite;
+  background:#fff;
+  border-radius:18px;
+  box-shadow:0 30px 80px rgba(0,0,0,.10), 0 8px 22px rgba(0,0,0,.05);
+  animation:logoBreath 6s ease-in-out 2s infinite;
 }
 @keyframes logoBreath{
   0%,100%{transform:scale(1)}
@@ -1899,7 +1901,8 @@ section{padding:120px 40px;position:relative}
   .hero-title-big .mark::after{height:.1em}
 
   .hero-stage{min-height:auto;margin:-6px 0 0}
-  .hero-center{width:min(320px,80vw)}
+  .hero-center{width:min(640px,94vw)}
+  .hero-center .hero-logo{border-radius:14px;box-shadow:0 16px 40px rgba(0,0,0,.08)}
 
   /* Hero photos — floating around the shape like PC */
   .hero-photos{top:0;bottom:0}
@@ -2082,7 +2085,7 @@ section{padding:120px 40px;position:relative}
 /* Extra small phones */
 @media(max-width:400px){
   .hero-eyebrow{font-size:7px;padding:4px 10px}
-  .hero-center{width:min(240px,68vw)}
+  .hero-center{width:min(560px,96vw)}
   .inclusive-dots .dot{width:90px;height:90px}
   .inclusive-dots .dot-jp{font-size:11px}
   .inclusive-dots .dot-en{display:none}
@@ -2588,135 +2591,6 @@ section{padding:120px 40px;position:relative}
   .cf-cta{padding:14px 26px;font-size:14px}
 }
 
-/* ============ KV INTRO (Hero直前のキービジュアル全画面) ============ */
-.kv-intro{
-  position:relative;
-  min-height:100vh;
-  background:#ffffff;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  padding:120px 24px 100px;
-  overflow:hidden;
-}
-.kv-intro-inner{
-  position:relative;
-  max-width:1400px;
-  width:100%;
-  z-index:2;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-}
-.kv-intro-eyebrow{
-  display:inline-flex;
-  align-items:center;
-  gap:12px;
-  font-family:'Outfit', sans-serif;
-  font-size:11px;
-  letter-spacing:.4em;
-  font-weight:600;
-  color:var(--c-green);
-  padding:9px 20px;
-  border:1px solid rgba(139,199,130,.45);
-  border-radius:999px;
-  margin-bottom:36px;
-  background:rgba(255,255,255,.85);
-  animation:kvFadeUp 1s cubic-bezier(.2,.8,.2,1) .2s both;
-}
-.kv-intro-eyebrow .dot{
-  width:7px;height:7px;
-  border-radius:50%;
-  background:var(--c-green);
-  display:inline-block;
-  animation:kvBlink 2s ease-in-out infinite;
-}
-.kv-intro-image{
-  width:100%;
-  max-width:1280px;
-  position:relative;
-  animation:kvFadeUp 1.2s cubic-bezier(.2,.8,.2,1) .4s both;
-}
-.kv-intro-image img{
-  width:100%;
-  height:auto;
-  display:block;
-}
-.kv-intro-decor{
-  position:absolute;
-  border-radius:50%;
-  filter:blur(28px);
-  opacity:.45;
-  pointer-events:none;
-  z-index:1;
-}
-.kv-intro-decor.d-tl{top:6%;left:4%;width:220px;height:220px;background:var(--c-green)}
-.kv-intro-decor.d-tr{top:12%;right:6%;width:180px;height:180px;background:var(--c-yellow)}
-.kv-intro-decor.d-bl{bottom:18%;left:8%;width:200px;height:200px;background:var(--c-blue)}
-.kv-intro-decor.d-br{bottom:8%;right:5%;width:240px;height:240px;background:var(--c-pink)}
-.kv-scroll-hint{
-  position:absolute;
-  bottom:32px;
-  left:50%;
-  transform:translateX(-50%);
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:10px;
-  color:#1a1a1a;
-  text-decoration:none;
-  z-index:3;
-  animation:kvFadeUp 1s cubic-bezier(.2,.8,.2,1) 1.4s both;
-}
-.kv-scroll-hint .hint-label{
-  font-family:'Outfit', sans-serif;
-  font-size:10px;
-  letter-spacing:.4em;
-  font-weight:700;
-}
-.kv-scroll-hint .hint-line{
-  width:1px;
-  height:48px;
-  background:rgba(26,26,26,.2);
-  position:relative;
-  overflow:hidden;
-}
-.kv-scroll-hint .hint-line::after{
-  content:'';
-  position:absolute;
-  top:-100%;
-  left:0;
-  width:100%;
-  height:60%;
-  background:linear-gradient(to bottom, transparent, #1a1a1a 50%, transparent);
-  animation:scrollLineMove 1.8s ease-in-out infinite;
-}
-@keyframes scrollLineMove{
-  0%{top:-60%}
-  100%{top:110%}
-}
-@keyframes kvFadeUp{
-  from{opacity:0;transform:translateY(28px)}
-  to{opacity:1;transform:translateY(0)}
-}
-@keyframes kvBlink{
-  0%,100%{opacity:1;transform:scale(1)}
-  50%{opacity:.6;transform:scale(.85)}
-}
-@media(max-width:768px){
-  .kv-intro{padding:96px 16px 80px;min-height:auto}
-  .kv-intro-eyebrow{font-size:9px;letter-spacing:.3em;padding:6px 14px;margin-bottom:24px}
-  .kv-intro-decor{filter:blur(20px);opacity:.4}
-  .kv-intro-decor.d-tl{width:120px;height:120px}
-  .kv-intro-decor.d-tr{width:100px;height:100px}
-  .kv-intro-decor.d-bl{width:110px;height:110px}
-  .kv-intro-decor.d-br{width:130px;height:130px}
-  .kv-scroll-hint{bottom:20px}
-  .kv-scroll-hint .hint-line{height:32px}
-  .kv-scroll-hint .hint-label{font-size:8px;letter-spacing:.3em}
-}
-
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01s!important;animation-iteration-count:1!important;transition-duration:.01s!important}
 }
@@ -2790,28 +2664,6 @@ section{padding:120px 40px;position:relative}
     <button class="menu-btn" aria-label="メニュー"><span></span></button>
   </nav>
 </header>
-
-<!-- ============ KV INTRO ============ -->
-<section class="kv-intro" id="kv-intro" aria-label="トイロフェス2027 キービジュアル">
-  <div class="kv-intro-decor d-tl" aria-hidden="true"></div>
-  <div class="kv-intro-decor d-br" aria-hidden="true"></div>
-  <div class="kv-intro-decor d-tr" aria-hidden="true"></div>
-  <div class="kv-intro-decor d-bl" aria-hidden="true"></div>
-
-  <div class="kv-intro-inner">
-    <span class="kv-intro-eyebrow">
-      <span class="dot"></span>THE INCLUSIVE FESTIVAL
-    </span>
-    <div class="kv-intro-image">
-      <img src="images/toiro-fes-kv-2027.png" alt="トイロフェス 2027 / 2027年1月9日(土) 11:00〜17:00 横浜アリーナ / 主催：エフィラグループ株式会社">
-    </div>
-  </div>
-
-  <a href="#hero" class="kv-scroll-hint" aria-label="次のセクションへスクロール">
-    <span class="hint-label">SCROLL</span>
-    <span class="hint-line"></span>
-  </a>
-</section>
 
 <!-- ============ HERO ============ -->
 <section class="hero" id="hero">
@@ -2914,8 +2766,8 @@ section{padding:120px 40px;position:relative}
     </div>
 
     <div class="hero-stage">
-      <div class="hero-center" aria-label="トイロフェス2027">
-        <img src="images/toiro-fes-logo-full-2027.png" alt="トイロフェス2027" class="hero-logo">
+      <div class="hero-center" aria-label="トイロフェス2027 — 2027年1月9日(土) 11:00〜17:00 横浜アリーナ">
+        <img src="images/toiro-fes-kv-full.png" alt="トイロフェス2027 / 2027年1月9日(土) 11:00〜17:00 横浜アリーナ / 主催：エフィラグループ株式会社" class="hero-logo">
       </div>
     </div>
 
